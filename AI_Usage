@@ -1,0 +1,7 @@
+Tools used: Claude and ChatGPT
+
+What the AI assisted with:
+    AI was used to generate basic project framework, like the initial code in each file. AI was also used for understnading and implementing concepts like indexes, transactions, isolation levels and SQL injection protection as well as for debugging errors that came up during development and deployment. 
+
+How the output was verified and modified:
+    All AI-generated code was tested locally and modified as needed. The basic functionality that was given by AI had to be heavily adjusted to fit my needs and what features I wanted the application to have. 
