@@ -1,0 +1,7 @@
+runtime: python312
+
+entrypoint: gunicorn -b :$PORT myproject.wsgi
+
+env_variables:
+  SECRET_KEY: "django-insecure-5$6(@r0@8&a0bo*mf@!x^!f2(gyfla7xhth313a%5eg%^w-mut"
+  DEBUG: "False"

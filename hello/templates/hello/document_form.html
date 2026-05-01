@@ -1,0 +1,36 @@
+<h2>{% if doc %}Edit Document{% else %}Add Document{% endif %}</h2>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Name:</label><br>
+    <input type="text" name="name" value="{{ doc.name|default:'' }}" required><br><br>
+
+    <label>Category:</label><br>
+    <select name="category">
+        {% for cat in categories %}
+            <option value="{{ cat.id }}"
+                {% if doc.category.id == cat.id %}selected{% endif %}>
+                {{ cat.name }}
+            </option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Renewal Date:</label><br>
+    <input type="date" name="renewal_date"
+           value="{{ doc.renewal_date|default:'' }}"><br><br>
+
+    <label>Location:</label><br>
+    <input type="text" name="location"
+           value="{{ doc.location|default:'' }}"><br><br>
+
+    <label>Notes:</label><br>
+    <textarea name="notes">{{ doc.notes|default:'' }}</textarea><br><br>
+
+    <button type="submit">{% if doc %}Save Changes{% else %}Add Document{% endif %}</button>
+    <a href="{% url 'document_list' %}">Cancel</a>
+</form>
